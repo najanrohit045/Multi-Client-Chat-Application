@@ -329,26 +329,4 @@ java -cp ".;lib\mysql-connector-j-*.jar" Main client
 | Volatile             | running flags in ChatServer and ChatClient         |
 
 ---
-
-## Interview Q&A
-
-**Q1: Why does ClientHandler extend Thread instead of implementing Runnable?**  
-A: For this project, `extends Thread` is simpler since we need to call `handler.disconnect()` from other threads — having the Thread reference is convenient. In production, implementing `Runnable` and using an `ExecutorService` thread pool is preferred for resource management and testability.
-
-**Q2: How is thread safety achieved in the online-users map?**  
-A: The map is a `ConcurrentHashMap` for thread-safe reads. Write operations (add/remove user) are additionally wrapped in `synchronized (onlineUsers)` blocks in ClientHandler to make the check-then-act sequence atomic.
-
-**Q3: What is the Singleton pattern in DBConnection and why is volatile needed?**  
-A: The Singleton ensures one shared `Connection` instance. `volatile` forces the JVM to read/write `connection` from main memory instead of a CPU cache, so double-checked locking works correctly across threads.
-
-**Q4: Why use PreparedStatement instead of Statement?**  
-A: `PreparedStatement` pre-compiles the SQL and safely escapes parameters, preventing SQL injection attacks. It also improves performance when the same query runs multiple times.
-
-**Q5: How does the offline message queue work?**  
-A: `ChatService` holds a `Map<String, Queue<Message>>`. When a private message targets an offline user, it's saved to MySQL (for persistence) and also enqueued in memory. When that user next connects, `ClientHandler` calls `chatService.drainPendingMessages(username)` to deliver them.
-
-**Q6: Explain the layered architecture.**  
-A: Network layer (ChatServer, ClientHandler) handles transport; Service layer (UserService, ChatService) enforces business rules; DAO layer (UserDAO, MessageDAO) isolates SQL; Model layer defines entities; Utility layer provides cross-cutting concerns (FileManager). This separation follows SOLID's Single Responsibility principle and makes each layer independently testable.
-
-**Q7: How would you scale this to 10,000 concurrent users?**  
-A: Replace `extends Thread` with a `CachedThreadPool` or `NioEventLoopGroup` (Netty), switch to non-blocking NIO channels, use a connection pool (HikariCP) instead of a singleton connection, and add a message broker (Redis/Kafka) for broadcast fanout.
+ 
