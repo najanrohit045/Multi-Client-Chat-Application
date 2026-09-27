@@ -1,3 +1,0 @@
-[2026-06-23 10:32:31] alice → Everyone: Hello Everyone
-[2026-06-23 10:33:35] bob → Everyone: Hello Bob
-[2026-06-23 10:34:02] alice → Everyone: kay kartoy

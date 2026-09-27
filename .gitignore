@@ -1,0 +1,11 @@
+target/
+*.class
+.idea/
+.vscode/
+*.log
+.env
+received_files/
+server_files/
+*.hprof
+
+.verification/
