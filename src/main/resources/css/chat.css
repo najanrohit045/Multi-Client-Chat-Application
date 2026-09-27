@@ -1,0 +1,32 @@
+.root { -fx-font-family: "DejaVu Sans"; -fx-font-size: 13px; -fx-base: #15202e; -fx-background: #101822; -fx-control-inner-background: #192534; -fx-text-background-color: #e4ecf5; -fx-accent: #6b6ff7; }
+.label { -fx-text-fill: #e4ecf5; }
+.auth-root { -fx-background-color: linear-gradient(to bottom right, #0c1521, #1d2145); }
+.auth-card { -fx-background-color: #172231; -fx-background-radius: 22; -fx-padding: 44; -fx-border-color: #34415b; -fx-border-radius: 22; }
+.brand { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #aaaaff; }
+.hero { -fx-font-size: 21px; -fx-font-weight: bold; }
+.title { -fx-font-size: 22px; -fx-font-weight: bold; }
+.muted { -fx-text-fill: #9bacc0; -fx-font-size: 12px; }
+.tiny { -fx-text-fill: #b3bfd0; -fx-font-size: 10px; }
+.button { -fx-background-color: #6264df; -fx-text-fill: white; -fx-background-radius: 9; -fx-padding: 11 16; -fx-cursor: hand; }
+.button:hover { -fx-background-color: #7779f0; }
+.text-field, .password-field, .combo-box { -fx-background-color: #243246; -fx-text-fill: #edf2ff; -fx-prompt-text-fill: #92a2b8; -fx-background-radius: 9; -fx-padding: 12; }
+.sidebar { -fx-background-color: #172231; -fx-padding: 24 18; -fx-border-color: transparent #2c394b transparent transparent; }
+.conversations { -fx-background-color: transparent; -fx-border-width: 0; }
+.conversations .list-cell { -fx-background-color: transparent; -fx-padding: 15 12; }
+.conversations .list-cell:selected { -fx-background-color: #30345b; -fx-background-radius: 10; }
+.conversation-name { -fx-font-weight: bold; -fx-font-size: 14px; }
+.chat-header { -fx-padding: 24; -fx-background-color: #172231; }
+.messages { -fx-padding: 26; -fx-background-color: #101822; }
+.message-scroll, .message-scroll > .viewport { -fx-background-color: #101822; -fx-border-width: 0; }
+.bubble { -fx-background-color: #243246; -fx-background-radius: 4 16 16 16; -fx-padding: 13 17; }
+.bubble-own { -fx-background-color: #45488a; -fx-background-radius: 16 4 16 16; -fx-padding: 13 17; }
+.composer { -fx-padding: 16 24 22; -fx-background-color: #172231; }
+.light { -fx-base: #f5f6fb; -fx-background: #f4f6fa; -fx-control-inner-background: #ffffff; -fx-text-background-color: #202b40; }
+.light .label { -fx-text-fill: #24324a; }
+.light .muted, .light .tiny { -fx-text-fill: #64728a; }
+.light .sidebar, .light .chat-header, .light .composer, .light .auth-card { -fx-background-color: #ffffff; }
+.light .messages, .light .message-scroll, .light .message-scroll > .viewport { -fx-background-color: #edf1f8; }
+.light .text-field, .light .password-field, .light .combo-box { -fx-background-color: #edf0f8; -fx-text-fill: #202b40; }
+.light .bubble { -fx-background-color: #ffffff; }
+.light .bubble-own { -fx-background-color: #d8d8ff; }
+.light .conversations .list-cell:selected { -fx-background-color: #dedffa; }
